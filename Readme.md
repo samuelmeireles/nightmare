@@ -227,7 +227,7 @@ Wait until the `fn` evaluated on the page returns `value`. Optionally, refresh t
 Useful for using repeated code blocks, see the example with Swiftly login and task creation in the docs above.
 
 #### .run(cb, teardown)
-Executes the queue of functions, and calls your `cb` when the script hits an error or completes the queue. The callback signature is `cb(err, nightmare)`. If teardown === false, nightmare instance remain its state, defaut === true.
+Executes the queue of functions, and calls your `cb` when the script hits an error or completes the queue. The callback signature is `cb(err, nightmare)`. If teardown = false, nightmare instance maintain its state, defaut = true.
 
 
 ### Extract from the Page
