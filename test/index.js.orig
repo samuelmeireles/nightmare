@@ -693,6 +693,9 @@ describe('Nightmare', function () {
       setTimeout(done, 4000);
     });
 
+<<<<<<< HEAD
+    it('should execute the queue in order', function (done) {
+=======
     it('should allow for no teardown', function(done){
       var nightmare = new Nightmare();
       nightmare
@@ -705,6 +708,7 @@ describe('Nightmare', function () {
     });
 
     it('should execute the queue in order', function(done) {
+>>>>>>> pullrequest
       var queue = [];
       new Nightmare()
         .goto('http://www.kayak.com/')

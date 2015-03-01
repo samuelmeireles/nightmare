@@ -74,6 +74,9 @@ new Nightmare()
 
 And [here's the `nightmare-swiftly` plugin](https://github.com/segmentio/nightmare-swiftly).
 
+<<<<<<< HEAD
+You can see examples of every function [in the tests here](https://github.com/segmentio/nightmare/blob/master/test/index.js).
+=======
 And here's a larger example, using a delayed teardown and control flow to page through
 some Yahoo search results.
 ```js
@@ -135,6 +138,7 @@ nightmare
   .run(scrape, false);//Don't teardown the instance after run is complete.
 
 ```
+>>>>>>> pullrequest
 
 ## API
 
@@ -261,8 +265,60 @@ For a more in-depth description, see [the full callbacks list for phantomjs](htt
 #### .screenshot(path)
 Saves a screenshot of the current page to the specified `path`. Useful for debugging. Note the path must include the file extension. Supported formats include .png, .gif, .jpeg, and .pdf.
 
+<<<<<<< HEAD
+#### .pdf(path)
+Saves a PDF with A4 size pages of the current page to the specified `path`.
+
+#### .title(cb)
+Get the title of the current page, the callback signature is `cb(title)`.
+
+#### .url(cb)
+Get the url of the current page, the signature of the callback is `cb(url)`.
+
+### Settings
+These functions must be called _before_ `.goto(url)`.
+
+#### .authentication(user, password)
+Set the `user` and `password` for accessing a web page using basic authentication. Be sure to set it before calling `.goto(url)`.
+
+```js
+new Nightmare()
+  .authentication('myUserName','myPassword')
+  .goto('http://httpbin.org/basic-auth/myUserName/myPassword')
+  .run(function( err, nightmare){
+    console.log("done");
+  });
+```
+
+#### .useragent(useragent)
+Set the `useragent` used by PhantomJS. You have to set the useragent before calling `.goto()`.
+
+#### .viewport(width, height)
+Set the `width` and `height` of the viewport, useful for screenshotting. Weirdly, you have to set the viewport before calling `.goto()`.
+
+#### .zoom(zoomFactor)
+Set the amount of zoom on the page. Default for a page is zoomFactor = 1. To zoom to 200%, set zoomFactor to 2. Combine with larger viewports to produce high DPI screenshots.
+
+```js
+new Nightmare()
+  //double DPI render of 1600x900
+  .viewport(3200, 1800)
+  .zoom(2)
+  .goto('http://www.wikipedia.org')
+  .wait()
+  .screenshot('test/testScaleIs2.png')
+  .run(function( err, nightmare){
+    console.log("done");
+  });
+```
+
+
+#### .headers(headers)
+Set the request `headers`. You have to call this before calling `.goto()`.
+=======
 #### .run(cb, teardown)
 Executes the queue of functions, and calls your `cb` when the script hits an error or completes the queue. The callback signature is `cb(err, nightmare)`.
+>>>>>>> pullrequest
 
 `teardown` is a boolean that tells Nightmare whether it should destroy the Phantomjs instance it's using when the run is complete. You can pass in `false` to reuse the same Nightmare instance between runs. Defaults to `true` if not provided.
 

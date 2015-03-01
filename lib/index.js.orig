@@ -66,8 +66,13 @@ Nightmare.prototype.run = function(callback, teardown) {
     function next(err) {
       var item = self.queue.shift();
       if (!item) {
+<<<<<<< HEAD
+        self.teardownInstance();
+        return (callback || noop)(err, self);
+=======
         if (teardown) self.teardownInstance();
         return (callback || noop)(null, self);
+>>>>>>> pullrequest
       }
       var method = item[0];
       var args = item[1];
